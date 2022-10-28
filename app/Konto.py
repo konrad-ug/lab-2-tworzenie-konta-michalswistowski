@@ -18,3 +18,10 @@ class Konto:
         if(promocja != None and len(promocja) == 8 and promocja[:5] == "PROM_" and (int(self.pesel[:2]) > 60 or
         int(self.pesel[2:4]) > 20)): 
             self.saldo += 50
+
+    def zaksieguj_przelew_wychodzacy(self, przelew):
+        if(self.saldo >= przelew):
+            self.saldo -= przelew
+
+    def zaksieguj_przelew_przychodzacy(self, przelew):
+        self.saldo += przelew

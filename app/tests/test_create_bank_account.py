@@ -1,5 +1,4 @@
 import unittest
-import re
 
 from ..Konto import Konto
 
@@ -34,3 +33,6 @@ class TestCreateBankAccount(unittest.TestCase):
     def test_promocja_przed60(self):
         konto = Konto("Dariusz", "Januszewski", "58111111111", "PROM_BCDfg")
         self.assertEqual(konto.saldo, 0, "nieslusznie dodano promocje!")
+
+
+
