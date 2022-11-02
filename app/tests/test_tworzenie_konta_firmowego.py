@@ -13,4 +13,3 @@ class testTworzenieKontaFirmowego(unittest.TestCase):
     def test_Niepoprawny_NIP(self):
         kontofirmowe = KontoFirmowe("jajco.inc", "12345678910")
         self.assertEqual(kontofirmowe.NIP, "Niepoprawny NIP!")
-

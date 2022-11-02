@@ -4,6 +4,7 @@ class Konto:
         self.nazwisko = nazwisko
         self.saldo = 0
         self.promocja = promocja
+        self.konto_biznesowe = False
 
         self.warunek_peselu(pesel)
         self.warunek_promocji(promocja)
@@ -25,3 +26,11 @@ class Konto:
 
     def zaksieguj_przelew_przychodzacy(self, przelew):
         self.saldo += przelew
+
+    def zaksieguj_przelew_ekspresowy(self, przelew):
+        if self.saldo >= przelew:
+            self.saldo -= przelew
+            if self.konto_biznesowe == True:
+                self.saldo -= 5
+            else:
+                self.saldo -= 1
