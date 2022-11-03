@@ -34,3 +34,6 @@ class Konto:
                 self.saldo -= 5
             else:
                 self.saldo -= 1
+
+    def coverage_not_100():
+        pass
