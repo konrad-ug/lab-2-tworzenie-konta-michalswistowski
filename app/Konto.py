@@ -5,6 +5,7 @@ class Konto:
         self.saldo = 0
         self.promocja = promocja
         self.konto_biznesowe = False
+        self.historia = []
 
         self.warunek_peselu(pesel)
         self.warunek_promocji(promocja)
@@ -23,17 +24,21 @@ class Konto:
     def zaksieguj_przelew_wychodzacy(self, przelew):
         if(self.saldo >= przelew):
             self.saldo -= przelew
+            self.historia.append(-przelew)
 
     def zaksieguj_przelew_przychodzacy(self, przelew):
         self.saldo += przelew
+        self.historia.append(przelew)
 
     def zaksieguj_przelew_ekspresowy(self, przelew):
         if self.saldo >= przelew:
             self.saldo -= przelew
             if self.konto_biznesowe == True:
                 self.saldo -= 5
+                self.historia.append(-przelew)
+                self.historia.append(-5)
             else:
                 self.saldo -= 1
+                self.historia.append(-przelew)
+                self.historia.append(-1)
 
-    def coverage_not_100():
-        pass
