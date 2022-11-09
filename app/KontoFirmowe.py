@@ -8,6 +8,7 @@ class KontoFirmowe(Konto):
         self.saldo = 0
         self.niepoprawny_NIP(NIP)
         self.konto_biznesowe = True
+        self.historia = []
     
     def niepoprawny_NIP(self, NIP):
         if (len(NIP) != 10):
