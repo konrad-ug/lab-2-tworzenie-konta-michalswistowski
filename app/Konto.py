@@ -42,3 +42,46 @@ class Konto:
                 self.historia.append(-przelew)
                 self.historia.append(-1)
 
+    # def zaciagnij_kredyt(self, kwota):
+    #     sum = 0
+    #     if (len(self.historia) < 3):
+    #         return False
+    #     if (self.historia[-3] > 0 and self.historia[-2] > 0 and self.historia[-1] > 0):
+    #         self.saldo += kwota
+    #         return True
+    #     if (len(self.historia) < 5):
+    #         return False
+    #     for i in self.historia[-5:]:
+    #         sum += i
+    #     if (sum <= kwota):
+    #         return False
+    #     self.saldo += kwota
+    #     return True
+
+    def warunek_3_ostatnie_wplaty(self):
+        if len(self.historia) < 3:
+            return False
+        else:
+            for i in self.historia[-3:]:
+                if i < 0:
+                    return False
+            return True
+
+    def warunek_suma_5_transakcji(self):
+        if len(self.historia) < 5:
+            return False
+        else: 
+            sum = 0
+            for i in self.historia[-5:]:
+                sum += i
+            return sum
+
+
+    def zaciagnij_kredyt(self, kwota):
+        if self.warunek_3_ostatnie_wplaty() or self.warunek_suma_5_transakcji() > kwota:
+            self.saldo += kwota
+            return True
+        return False
+
+
+
