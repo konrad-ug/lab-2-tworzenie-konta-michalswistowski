@@ -11,9 +11,9 @@ class TestUdzielenieKredytuFirma(unittest.TestCase):
         self.kontoFirmowe = KontoFirmowe(self.nazwaFirmy, self.nipFirmy)
 
     @parameterized.expand([
-        ([300, 300, 1775], 700, 300, True, 1000),
+        ([300, 300, -1775], 700, 300, True, 1000),
         ([300, 300, 300], 900, 400, False, 900),
-        ([300, 1775], 300, 400, False, 300),
+        ([300, -1775], 300, 400, False, 300),
         ([300, 300], 600, 700, False, 600)
     ])
 
